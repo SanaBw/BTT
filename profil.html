@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>BTT</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>jQuery.noConflict();</script>
+        <script src="js/jquery-ui.min.js"></script>
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+        <!-- Plugin CSS -->
+        <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+        <!-- Custom styles for this template -->
+        <link href="css/freelancer.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+
+    </head>
+
+    <body id="page-top">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">BTT</a>
+                <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#vehicle">Vehicle</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#hotel">Hotel/Hostel/Motel</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#apartment">Apartment/House</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Portfolio Grid Section -->
+        <section class="portfolio" id="hotel" style="text-align: left; ">
+            <div class="container">
+                <div class="row">
+
+                    <!--HOTEL-->
+                    <div class="col-md-12 col-lg-12 mx-auto" style="padding-top: 50px">
+                        <hr class="star-dark mb-5">
+                        <div class="tab">
+                            <button class="tablinks" onclick="openTab(event, 'title')" id="defaultOpen">Title</button>
+                            <button class="tablinks" onclick="openTab(event, 'info')" id="infoBtn" >Info</button>
+                            <button id="priceBtn" class="tablinks" onclick="openTab(event, 'price')">Price and pics</button>
+                            <button id="extrasBtn" class="tablinks" onclick="openTab(event, 'extras')">Extras</button>
+                        </div>
+
+                        <!--TITLE TAB-->
+                        <div id="title" class="tabcontent" style="padding-bottom: 50px"><br>
+                            <h3>What are You renting?</h3>
+                            <p style="padding-bottom: 25px" id="hotelTitleP">In this field write a title such as the name of the object with a short description</p>
+                            <input name="hotelTitle" id="hotelTitle" style="width: 70%"/><br>
+                            <button type="submit" id="hotelTitleNext" style="margin-top: 25px"><b>NEXT</b></button>
+                        </div>
+
+                        <!--INFO TAB-->
+                        <div id="info" class="tabcontent"><br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 mx-auto">
+                                        <label for="address">Address</label><br>
+                                        <input name="address" id="address"/><br><br>
+                                        <label for="city">City</label><br>
+                                        <input name="city" id="city"/><br><br>
+                                        <label for="size">Size in square meters</label><br>
+                                        <input name="size" id="size" type="number"/><br><br>
+                                        <label for="size2">Size of area around the object</label><br>
+                                        <input name="size2" id="size2" type="number"/><br><br>
+                                        <label for="rooms">Number of rooms</label><br>
+                                        <input name="rooms" id="rooms" type="number"/><br><br>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 mx-auto">
+                                        <label for="floors">Number of floors</label><br>
+                                        <input name="floors" id="floors" type="number"/><br><br>
+                                        <label for="heating">Heating</label><br>
+                                        <select name="heating" id="heating">
+                                            <option disabled selected value> </option>
+                                            <option value="Central Heating">Central Heating</option>
+                                            <option value="Natural Gas">Natural Gas</option>
+                                            <option value="Electricity">Electricity</option>
+                                            <option value="Other">Other</option>
+                                        </select>   <br><br>
+                                        <label for="floorType">Type of floor</label><br>
+                                        <select name="floorType"  id="floorType">
+                                            <option disabled selected value> </option>
+                                            <option value="Hard Wood">Hard Wood</option>
+                                            <option value="Tiles">Tiles</option>
+                                            <option value="Laminate">Laminate</option>
+                                            <option value="Other">Other</option>
+                                        </select> <br><br>
+                                        <button type="submit" id="hotelInfoNext" ><b>NEXT</b></button><br><br>
+                                        <p style="padding: 10px; margin: 10px" id="hotelInfoP"></p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <!--PRICE TAB-->
+                        <div id="price" class="tabcontent">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 mx-auto"><br>  
+                                        <h3>Price</h3><br>                                    
+                                        <input name="priceE" id="priceE" type="number">
+                                        <label for="priceE"> € (Euros)- during the season</label>
+                                        <input name="priceE2" id="priceE2" type="number">
+                                        <label for="priceE2"> € (Euros) - off season</label>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 mx-auto"><br>  
+                                        <h3>Upload pictures</h3><br>
+                                        <input name="pictures" id="pictures" type="file" multiple><br>
+                                    </div>
+                                </div>
+                            </div><br><br>
+                            <button type="submit" id="hotelPriceNext" ><b>NEXT</b></button><br><br>
+                            <p style="padding:5px;text-align: center; width: 20%; object-position: center" id="hotelPriceP"></p>                            
+                        </div>
+
+                        <!--EXTRAS TAB-->
+                        <div id="extras" class="tabcontent">
+                            <h3>Check all that apply</h3>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-12 mx-auto"><br>
+
+                                        <h5>Toilet</h5>
+                                        <input type="checkbox" name="washingMachine" value="washingMachine" id="washingMachine">&nbsp;<label for="washingMachine">Washing machine</label><br>
+                                        <input type="checkbox" name="dryer" value="dryer" id="dryer">&nbsp;<label for="dryer">Dryer</label><br>
+                                        <input type="checkbox" name="toiletPaper" value="toiletPaper" id="toiletPaper">&nbsp;<label for="toiletPaper">Toilet paper</label><br>
+                                        <input type="checkbox" name="towels" value="towels" id="towels">&nbsp;<label for="towels">Towels</label><br>
+                                        <input type="checkbox" name="bidet" value="bidet" id="bidet">&nbsp;<label for="bidet">Bidet</label><br>
+                                        <input type="checkbox" name="bathub" value="bathub" id="bathub">&nbsp;<label for="bathub">Bathub</label><br>
+                                        <input type="checkbox" name="cabin" value="cabin" id="cabin">&nbsp;<label for="cabin">Cabin</label><br>
+                                        <input type="checkbox" name="wc" value="wc" id="wc">&nbsp;<label for="wc">WC</label><br>
+                                        <h5>Bedroom</h5>
+                                        <input type="checkbox" name="wardrobeOrCloset" value="wardrobeOrCloset" id="wardrobeOrCloset"><label for="wardrobeOrCloset">Wardrobe or closet</label><br>
+                                        <input type="checkbox" name="wardrobe" value="wardrobe" id="wardrobe"><label for="wardrobe">Wardrobe</label>
+                                        <br><br>
+
+                                        <h5>Kitchen</h5>
+                                        <input type="checkbox" name="kitchenTable" value="kitchenTable" id="kitchenTable">&nbsp;<label for="kitchenTable">Kitchen Table</label><br>
+                                        <input type="checkbox" name="detergents" value="detergents" id="detergents">&nbsp;<label for="detergents">Detergents</label><br>
+                                        <input type="checkbox" name="cookingPlate" value="cookingPlate" id="cookingPlate">&nbsp;<label for="cookingPlate">Cooking plate</label><br>
+                                        <input type="checkbox" name="oven" value="oven" id="oven">&nbsp;<label for="oven">Oven</label><br>
+                                        <input type="checkbox" name="kitchenAccessories" value="kitchenAccessories" id="kitchenAccessories">&nbsp;<label for="kitchenAccessories">Kitchen accessories</label><br>
+                                        <input type="checkbox" name="microwaveOven" value="microwaveOven" id="microwaveOven">&nbsp;<label for="microwaveOven">Microwave oven</label><br>
+                                        <input type="checkbox" name="refrigerator" value="refrigerator" id="refrigerator">&nbsp;<label for="refrigerator">Refrigerator</label><br><br>
+
+                                        <h5>Content of room</h5>
+                                        <input type="checkbox" name="sofaBed" value="sofaBed" id="sofaBed">&nbsp;<label for="sofaBed"> Sofa Bed</label><br>
+                                        <input type="checkbox" name="soundInsulation" value="soundInsulation" id="soundInsulation">&nbsp;<label for="soundInsulation">Sound insulation</label><br>
+                                        <input type="checkbox" name="privateEntrance" value="privateEntrance" id="privateEntrance">&nbsp;<label for="privateEntrance">Private entrance</label><br>
+                                        <input type="checkbox" name="safe" value="safe" id="safe">&nbsp;<label for="safe">Safe</label><br>
+                                        <input type="checkbox" name="iron" value="iron" id="iron">&nbsp;<label for="iron">Iron</label><br>
+                                        <input type="checkbox" name="ironingBoard" value="ironingBoard" id="ironingBoard">&nbsp;<label for="ironingBoard">Ironing board</label><br><br>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12 mx-auto"><br> 
+
+                                        <h5>Yard</h5>
+                                        <input type="checkbox" name="riverView" value="riverView" id="riverView">&nbsp;<label for="riverView">River view</label><br>
+                                        <input type="checkbox" name="cityView" value="cityView" id="cityView">&nbsp;<label for="cityView">City view</label><br>
+                                        <input type="checkbox" name="mountainView" value="mountainView" id="mountainView">&nbsp;<label for="mountainView">Mountain view</label><br>
+                                        <input type="checkbox" name="gardenView" value="gardenView" id="gardenView">&nbsp;<label for="gardenView">Garden view</label><br><br>
+
+                                        <h5>Pets</h5>
+                                        <label>Whether pets are allowed?</label> 
+                                        <input type="checkbox" name="yes" value="yes" id="yes">&nbsp;<label for="yes">Yes</label><br>
+                                        <input type="checkbox" name="no" value="no" id="no">&nbsp;<label for="no">No</label><br><br>
+                                        
+                                        <h5>Living room</h5>
+                                        <input type="checkbox" name="diningRoom" value="diningRoom" id="diningRoom">&nbsp;<label for="diningRoom">Dining room</label><br>
+                                        <input type="checkbox" name="couch" value="couch" id="couch">&nbsp;<label for="couch">Couch</label><br>
+                                        <input type="checkbox" name="seatingArea" value="seatingArea" id="seatingArea">&nbsp;<label for="seatingArea">Seating area</label><br><br>
+
+                                        <h5>Media and technology</h5>
+                                        <input type="checkbox" name="tv" value="tv" id="tv">&nbsp;<label for="tv">TV</label><br>
+                                        <input type="checkbox" name="flatScreen" value="flatScreen" id="flatScreen">&nbsp;<label for="flatScreen">Flat screen</label><br>
+                                        <input type="checkbox" name="satellite" value="satellite" id="satellite">&nbsp;<label for="satellite">Satellite</label><br>
+                                        <input type="checkbox" name="cable" value="cable" id="cable">&nbsp;<label for="cable">Cable</label><br><br>
+
+                                        <h5>Internet</h5>
+                                        <label>Does the house have internet access?</label><br>
+                                        <input type="checkbox" name="internetYes" value="internetYes" id="internetYes">&nbsp;<label for="internetYes">Yes</label><br>
+                                        <input type="checkbox" name="internetNo" value="internetNo" id="internetNo">&nbsp;<label for="internetNo">No</label><br><br>
+                                        
+                                        <h5>Availability</h5>
+                                        <input type="checkbox" name="loweredWashbasin" value="loweredWashbasin" id="loweredWashbasin">&nbsp;<label for="loweredWashbasin">Lowered washbasin</label><br>
+                                        <input type="checkbox" name="objectAdapted" value="objectAdapted" id="objectAdapted">&nbsp;<label for="objectAdapted">Object adapted for people with disabilities</label><br>
+                                        <input type="checkbox" name="elevator" value="elevator" id="elevator">&nbsp;<label for="elevator">Upper floors available with an elevator</label><br>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12 mx-auto"><br>
+
+                                        <h5>Parking</h5><br>
+                                        <label>Whether the house has a parking space?</label>
+                                        <input type="checkbox" name="parkingYes" value="parkingYes" id="parkingYes">&nbsp;<label for="parkingYes">Yes</label><br>
+                                        <input type="checkbox" name="parkingNo" value="parkingNo" id="parkingNo">&nbsp;<label for="parkingNo">No</label><br>
+                                        <input type="checkbox" name="garage" value="garage" id="garage">&nbsp;<label for="garage">Garage</label><br><br>
+
+                                        <h5>Entertainment and family content</h5>
+                                        <input type="checkbox" name="childrenProgram" value="childrenProgram" id="childrenProgram">&nbsp;<label for="childrenProgram">Children's television program</label><br>
+                                        <input type="checkbox" name="safetyForBabies" value="safetyForBabies" id="safetyForBabies">&nbsp;<label for="safetyForBabies">Safety barrier for babies</label><br><br>
+
+                                        <h5>Other</h5>
+                                        <input type="checkbox" name="airConditioning" value="airConditioning" id="airConditioning">&nbsp;<label for="airConditioning">Air conditioning</label><br>
+                                        <input type="checkbox" name="heating" value="heating" id="heating">&nbsp;<label for="heating">Heating</label><br>
+                                        <input type="checkbox" name="familyRoom" value="familyRoom" id="familyRoom">&nbsp;<label for="familyRoom">Family room</label><br>
+                                        <input type="checkbox" name="nonsmokingRoom" value="nonsmokingRoom" id="nonsmokingRoom">&nbsp;<label for="nonsmokingRoom">Nonsmoking room</label><br>
+                                    </div>
+                                </div>    
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-1 col-sm-2 mx-auto" style="align-content: center;">
+                                        <button type="submit" id="hotelExtrasNext"><b>DONE</b></button><br><br>
+                                        <p style="padding:5px;text-align: center; width: 20%; object-position: center" id="hotelExtrasP"></p>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>        
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div style="bottom: 0;width: 100%">
+            <footer class="footer text-center" >
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-md-6 mb-6 mb-lg-0">
+                            <h4 class="text-uppercase mb-4">Location</h4>
+                            <p class="lead mb-0"> </p>
+                        </div>
+                        <div class="col-md-6 mb-6 mb-lg-0">
+                            <h4 class="text-uppercase mb-4">Around the Web</h4>
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                                        <i class="fab fa-fw fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                                        <i class="fab fa-fw fa-google-plus-g"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                                        <i class="fab fa-fw fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                                        <i class="fab fa-fw fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                                        <i class="fab fa-fw fa-dribbble"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <div class="copyright py-4 text-center text-white" >
+                <div class="container" >
+                    <small>Copyright &copy; BTT</small>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+        <div class="scroll-to-top d-lg-none position-fixed ">
+            <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+        </div>
+
+
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+        <!-- Contact Form JavaScript -->
+        <script src="js/jqBootstrapValidation.js"></script>
+        <script src="js/contact_me.js"></script>
+
+
+
+        <!-- Custom scripts for this template -->
+        <script src="js/freelancer.min.js"></script>
+
+        <!-- My scripts for this template -->
+        <script src="logreg/logreg.js"></script>
+        <script src="js/hotel.js"></script>
+    </body>
+
+
+
+
+</html>

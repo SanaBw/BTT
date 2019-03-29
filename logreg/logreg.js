@@ -33,7 +33,7 @@ jQuery("#registerButton").click(function () {
                     });
 
                 } else if (response.trim()=='user'){
-                    document.getElementById("registerSuccess").innerHTML = "User already exists" + response;
+                    document.getElementById("registerSuccess").innerHTML = "User already exists";
                     document.getElementById("registerSuccess").style.backgroundColor="#bb0000";
                     document.getElementById("register-name").innerHTML = "";
 
@@ -91,9 +91,16 @@ jQuery("#loginButton").click(function (){
         })
             .done(function(response, textStatus){
             if (response.trim()=='success'){
-                //redirect
-                console.log("OK");
-            } else {
+                document.getElementById("loginSuccess").innerHTML = "Redirecting...";
+                document.getElementById("loginSuccess").style.backgroundColor="#18BC9C";
+                window.location.replace("/tourist/profil.html");
+            } else if(response.trim()=='password'){
+                document.getElementById("loginSuccess").innerHTML = "Incorrect password";
+                document.getElementById("loginSuccess").style.backgroundColor="#bb0000";
+            }else if(response.trim() =='status'){
+                document.getElementById("loginSuccess").innerHTML = "Your E-Mail is not verified yet!";
+                document.getElementById("loginSuccess").style.backgroundColor="#bb0000";
+            }else {
                 document.getElementById("loginSuccess").innerHTML = "There was an error. Try again or contact us.";
                 document.getElementById("loginSuccess").style.backgroundColor="#bb0000";
             }

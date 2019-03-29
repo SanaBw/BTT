@@ -4,15 +4,15 @@ include_once('connection.php');
 $registerName=mysqli_real_escape_string($conn, ($_POST['register-name']));
 $registerEmail=mysqli_real_escape_string($conn, ($_POST['register-email']));
 $registerPhone=mysqli_real_escape_string($conn, ($_POST['register-phone']));
-$registerPassword=md5(mysqli_real_escape_string($conn, ($_POST['register-password'])));
+$registerPassword=password_hash(mysqli_real_escape_string($conn, ($_POST['register-password'])),PASSWORD_DEFAULT);
 $status = 0;
 $vals="";
-$code = md5(date("Y-m-d h:i:sa") . $registerPassword);
+$code = password_hash(date("Y-m-d h:i:sa") . $registerPassword,PASSWORD_DEFAULT);
 
 $sql = "INSERT INTO users (name, email, phone, password, code, status)
 VALUES ('$registerName', '$registerEmail', '$registerPhone','$registerPassword', '$code', '$status')";
 
-$check = "SELECT * FROM `users` WHERE `name`='$registerName' ";
+$check = "SELECT * FROM `users` WHERE `name`='$registerName' AND email='$registerEmail'";
 $result_check = mysqli_query($conn, $check); 
 
 

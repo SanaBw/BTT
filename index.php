@@ -1,3 +1,29 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+    }
+
+if(isset($_SESSION['name'])){
+    
+        /*$name=$_SESSION['name'];
+        $email=$_SESSION['email'];
+        include_once('/logreg/connection.php');
+        $query = "SELECT * FROM users WHERE name='$name' AND email='$email'";
+
+        $data = mysqli_query($conn, $query);
+        $rows=mysqli_num_rows($data);
+
+        if($rows==1){
+            $row=mysqli_fetch_array($data);
+            $first_name=$row['first_name'];
+            $last_name=$row['last_name'];
+            $username=$row['username'];
+        }*/
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +101,7 @@
                         <form method="post" id="loginForm" novalidate="true" >
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Your Name</label>
+                                    <label>Your E-Mail</label>
                                     <input class="form-control" id="login-email" name="login-email" type="text" placeholder="Your E-Mail" required="required" data-validation-required-message="Please enter your mail.">
                                     <p class="help-block text-danger"></p>
                                 </div>

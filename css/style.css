@@ -1,0 +1,57 @@
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #2c3e50;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #18BC9C;
+}
+
+.tab button:disabled:hover{
+    background-color: #2c3e50;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #18BC9C;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 12px 24px;
+    border: 1px solid #ccc;
+    border-top: none;
+
+}
+
+.tabcontent p{
+	font-style: oblique;
+}
+
+.tablinks {
+    color: white;
+}
+
+#hotelTitleNext, #hotelInfoNext, #hotelPriceNext, #hotelExtrasNext{
+    background-color: #18BC9C;
+    color: white;
+    border: solid #18BC9C;
+    border-radius: 5px;
+    margin-left: 10px;
+}
