@@ -3,11 +3,12 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
     }
 
-if(isset($_SESSION['name'])){
+include_once('logreg/connection.php');
+
+if(isset($_SESSION['name']) || !isset($_SESSION)){
     
-        /*$name=$_SESSION['name'];
-        $email=$_SESSION['email'];
-        include_once('/logreg/connection.php');
+        $name=$_SESSION['name'];
+        $email=$_SESSION['email'];        
         $query = "SELECT * FROM users WHERE name='$name' AND email='$email'";
 
         $data = mysqli_query($conn, $query);
@@ -18,12 +19,15 @@ if(isset($_SESSION['name'])){
             $first_name=$row['first_name'];
             $last_name=$row['last_name'];
             $username=$row['username'];
-        }*/
-}
+            header('Location: hotel.html');
+            exit; 
+        } else {
+            echo "none";
+        }
+} 
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +56,6 @@ if(isset($_SESSION['name'])){
 
         <!-- Custom styles for this template -->
         <link href="css/freelancer.min.css" rel="stylesheet">
-
 
     </head>
 

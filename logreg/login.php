@@ -21,10 +21,10 @@ if(mysqli_num_rows($result) > 0){
     if ($data['status']==0){
         $vals="status";
     } else if (password_verify($loginPassword,$data['password'])){
-        $_SESSION['name'] = $data['name'];
-        $_SESSION['email'] = $data['email'];
-        $_SESSION['loggedin'] = true;
         session_start();
+        $_SESSION['name'] = $data['name'];        
+        $_SESSION['email'] = $data['email'];
+        $_SESSION['loggedin'] = true;        
         
         $vals="success";
     } else {
