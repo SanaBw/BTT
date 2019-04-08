@@ -93,7 +93,7 @@ jQuery("#loginButton").click(function (){
             if (response.trim()=='success'){
                 document.getElementById("loginSuccess").innerHTML = "Redirecting...";
                 document.getElementById("loginSuccess").style.backgroundColor="#18BC9C";
-                window.location.replace("/tourist/hotel.html");
+                window.location.replace("/tourist/profile.php");
             } else if(response.trim()=='password'){
                 document.getElementById("loginSuccess").innerHTML = "Incorrect password";
                 document.getElementById("loginSuccess").style.backgroundColor="#bb0000";

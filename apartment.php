@@ -1,3 +1,19 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+include_once('logreg/connection.php');
+
+if(!isset($_SESSION['name'])){
+
+    header('Location: index.php');
+    exit; 
+
+} 
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,32 +50,21 @@
     <body id="page-top">
 
         <!-- Navigation -->
+        <!-- Navigation -->
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">BTT</a>
-                <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#vehicle">Vehicle</a>
-                        </li>
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#hotel">Hotel/Hostel/Motel</a>
-                        </li>
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#apartment">Apartment/House</a>
-                        </li>
-                    </ul>
-                </div>
+                <a class="navbar-brand js-scroll-trigger" href="index.php">BTT</a>
+                <ul class="navbar-nav ml-auto">                        
+                    <li class="nav-item mx-0 mx-lg-1" id="logOut" >
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="logreg/logOut.php">Log Out</a>
+                    </li>
+                </ul>
             </div>
         </nav>
 
         <!-- Portfolio Grid Section -->
-        <section class="portfolio" id="hotel" style="text-align: left; ">
-            <form id="hotelForm" onsubmit="javascript:return false" method="post">
+        <section class="portfolio" id="apartment" style="text-align: left; ">
+            <form id="apartmentForm" onsubmit="javascript:return false" method="post">
                 <div class="container">
                     <div class="row">
 
@@ -76,9 +81,9 @@
                             <!--TITLE TAB-->
                             <div id="title" class="tabcontent" style="padding-bottom: 50px"><br>
                                 <h3>What are You renting?</h3>
-                                <p style="padding-bottom: 25px" id="hotelTitleP">In this field write a title such as the name of the object with a short description</p>
-                                <input name="hotelTitle" id="hotelTitle" style="width: 70%"/><br>
-                                <button id="hotelTitleNext" style="margin-top: 25px"><b>NEXT</b></button>
+                                <p style="padding-bottom: 25px" id="apartmentTitleP">In this field write a title such as the name of the object with a short description</p>
+                                <input name="apartmentTitle" id="apartmentTitle" style="width: 70%"/><br>
+                                <button id="apartmentTitleNext" style="margin-top: 25px"><b>NEXT</b></button>
                             </div>
 
                             <!--INFO TAB-->
@@ -116,8 +121,8 @@
                                                 <option value="Laminate">Laminate</option>
                                                 <option value="Other">Other</option>
                                             </select> <br><br>
-                                            <button id="hotelInfoNext" ><b>NEXT</b></button><br><br>
-                                            <p style="padding: 10px; margin: 10px" id="hotelInfoP"></p>
+                                            <button id="apartmentInfoNext" ><b>NEXT</b></button><br><br>
+                                            <p style="padding: 10px; margin: 10px" id="apartmentInfoP"></p>
                                         </div>
                                     </div>
                                 </div> 
@@ -140,8 +145,8 @@
                                         </div>
                                     </div>
                                 </div><br><br>
-                                <button id="hotelPriceNext" ><b>NEXT</b></button><br><br>
-                                <p style="padding:5px;text-align: center; width: 20%; object-position: center" id="hotelPriceP"></p>                            
+                                <button id="apartmentPriceNext" ><b>NEXT</b></button><br><br>
+                                <p style="padding:5px;text-align: center; width: 20%; object-position: center" id="apartmentPriceP"></p>                            
                             </div>
 
                             <!--EXTRAS TAB-->
@@ -155,29 +160,29 @@
                                             &nbsp;<label for="washingMachine">Washing Machine</label><br>                                          
                                             <input type="hidden" id="dryer" name="dryer" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="dryer">Dryer</label><br>
-                                            
+
                                             <input type="hidden" id="toiletPaper" name="toiletPaper" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="toiletPaper">Toilet paper</label><br>
-                                            
+
                                             <input type="hidden" id="towels" name="towels" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="towels">Towels</label><br>
-                                            
+
                                             <input type="hidden" id="bidet" name="bidet" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="bidet">Bidet</label><br>
-                                            
+
                                             <input type="hidden" id="bathub" name="bathub" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="bathub">Bathub</label><br>
-                                            
+
                                             <input type="hidden" id="cabin" name="cabin" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="cabin">Cabin</label><br>
-                                            
+
                                             <input type="hidden" id="wc" name="wc" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
-                                            &nbsp;<label for="wc">WC</label><br>
-                                            
+                                            &nbsp;<label for="wc">WC</label><br><br>
+
                                             <h5>Bedroom</h5>
                                             <input type="hidden" id="wardrobeOrCloset" name="wardrobeOrCloset" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="wardrobeOrCloset">Wardrobe or closet</label><br>
-                                            
+
                                             <input type="hidden" id="wardrobe" name="wardrobe" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="wardrobe">Wardrobe</label>
                                             <br><br>
@@ -185,106 +190,101 @@
                                             <h5>Kitchen</h5>
                                             <input type="hidden" id="kitchenTable" name="kitchenTable" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="kitchenTable">Kitchen Table</label><br>
-                                            
+
                                             <input type="hidden" id="detergents" name="detergents" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="detergents">Detergents</label><br>
-                                            
+
                                             <input type="hidden" id="cookingPlate" name="cookingPlate" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="cookingPlate">Cooking plate</label><br>
-                                            
-                                           <input type="hidden" id="oven" name="oven" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+
+                                            <input type="hidden" id="oven" name="oven" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="oven">Oven</label><br>
-                                            
+
                                             <input type="hidden" id="kitchenAccessories" name="kitchenAccessories" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="kitchenAccessories">Kitchen accessories</label><br>
-                                            
+
                                             <input type="hidden" id="microwaveOven" name="microwaveOven" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="microwaveOven">Microwave oven</label><br>
-                                            
+
                                             <input type="hidden" id="refrigerator" name="refrigerator" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="refrigerator">Refrigerator</label><br><br>
 
                                             <h5>Content of room</h5>
                                             <input type="hidden" id="sofaBed" name="sofaBed" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="sofaBed"> Sofa Bed</label><br>
-                                            
+
                                             <input type="hidden" id="soundInsulation" name="soundInsulation" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">           
                                             &nbsp;<label for="soundInsulation">Sound insulation</label><br>
-                                            
+
                                             <input type="hidden" id="privateEntrance" name="privateEntrance" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="privateEntrance">Private entrance</label><br>
-                                            
+
                                             <input type="hidden" id="safe" name="safe" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="safe">Safe</label><br>
-                                            
+
                                             <input type="hidden" id="iron" name="iron" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="iron">Iron</label><br>
-                                            
+
                                             <input type="hidden" id="ironingBoard" name="ironingBoard" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="ironingBoard">Ironing board</label><br><br>
-                                            
+
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-12 mx-auto"><br> 
 
                                             <h5>Yard</h5>
-                                             <input type="hidden" id="riverView" name="riverView" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+                                            <input type="hidden" id="riverView" name="riverView" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="riverView">River view</label><br>
-                                            
-                                             <input type="hidden" id="cityView" name="cityView" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+
+                                            <input type="hidden" id="cityView" name="cityView" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="cityView">City view</label><br>
-                                            
-                                             <input type="hidden" id="mountainView" name="mountainView" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+
+                                            <input type="hidden" id="mountainView" name="mountainView" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="mountainView">Mountain view</label><br>
-                                            
-                                             <input type="hidden" id="gardenView" name="gardenView" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+
+                                            <input type="hidden" id="gardenView" name="gardenView" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="gardenView">Garden view</label><br><br>
 
                                             <h5>Pets</h5>
-                                            <label>Whether pets are allowed?</label> <br>
-                                             <input type="hidden" id="yes" name="yes" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
-                                            &nbsp;<label for="yes">Yes</label><br>
-                                            
-                                            <input type="hidden" id="no" name="no" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
-                                            &nbsp;&nbsp;<label for="no">No</label><br><br>
+                                            <input type="hidden" id="yes" name="yes" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+                                            &nbsp;<label for="yes">Pets are allowed</label><br>
+
+                                         
 
                                             <h5>Living room</h5>
-                                             <input type="hidden" id="diningRoom" name="diningRoom" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+                                            <input type="hidden" id="diningRoom" name="diningRoom" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="diningRoom">Dining room</label><br>
-                                            
-                                             <input type="hidden" id="couch" name="couch" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+
+                                            <input type="hidden" id="couch" name="couch" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="couch">Couch</label><br>
-                                            
-                                             <input type="hidden" id="seatingArea" name="seatingArea" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+
+                                            <input type="hidden" id="seatingArea" name="seatingArea" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="seatingArea">Seating area</label><br><br>
 
                                             <h5>Media and technology</h5>
                                             <input type="hidden" id="tv" name="tv" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="tv">TV</label><br>
-                                            
+
                                             <input type="hidden" id="flatScreen" name="flatScreen" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="flatScreen">Flat screen</label><br>
-                                            
+
                                             <input type="hidden" id="satellite" name="satellite" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="satellite">Satellite</label><br>
-                                            
+
                                             <input type="hidden" id="cable" name="cable" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="cable">Cable</label><br><br>
 
                                             <h5>Internet</h5>
-                                            <label>Does the house have internet access?</label><br>
                                             <input type="hidden" id="internetYes" name="internetYes" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
-                                            &nbsp;<label for="internetYes">Yes</label><br>
-                                            
-                                            <input type="hidden" id="internetNo" name="internetNo" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
-                                            &nbsp;<label for="internetNo">No</label><br><br>
+                                            &nbsp;<label for="internetYes">Internet access</label><br>
+
 
                                             <h5>Availability</h5>
                                             <input type="hidden" id="loweredWashbasin" name="loweredWashbasin" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="loweredWashbasin">Lowered washbasin</label><br>
-                                            
+
                                             <input type="hidden" id="objectAdapted" name="objectAdapted" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="objectAdapted">Object adapted for people with disabilities</label><br>
-                                            
+
                                             <input type="hidden" id="elevator" name="elevator" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="elevator">Upper floors available with an elevator</label><br>
                                         </div>
@@ -294,38 +294,38 @@
                                             <label>Whether the house has a parking space?</label><br>
                                             <input type="hidden" id="parkingYes" name="parkingYes" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="parkingYes">Yes</label><br>
-                                            
+
                                             <input type="hidden" id="parkingNo" name="parkingNo" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="parkingNo">No</label><br>
-                                            
-                                           <input type="hidden" id="garage" name="garage" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+
+                                            <input type="hidden" id="garage" name="garage" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="garage">Garage</label><br><br>
 
                                             <h5>Entertainment and family content</h5>
-                                           <input type="hidden" id="childrenProgram" name="childrenProgram" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+                                            <input type="hidden" id="childrenProgram" name="childrenProgram" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="childrenProgram">Children's television program</label><br>
-                                            
-                                           <input type="hidden" id="safetyForBabies" name="safetyForBabies" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+
+                                            <input type="hidden" id="safetyForBabies" name="safetyForBabies" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="safetyForBabies">Safety barrier for babies</label><br><br>
 
                                             <h5>Other</h5>
                                             <input type="hidden" id="airConditioning" name="airConditioning" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="airConditioning">Air conditioning</label><br>
-                                            
+
                                             <input type="hidden" id="heatingCheck" name="heatingCheck" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="heatingCheck">Heating</label><br>
-                                            
+
                                             <input type="hidden" id="familyRoom" name="familyRoom" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="familyRoom">Family room</label><br>
-                                            
+
                                             <input type="hidden" id="nonsmokingRoom" name="nonsmokingRoom" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
                                             &nbsp;<label for="nonsmokingRoom">Nonsmoking room</label><br>
                                         </div>
                                     </div>  <br><br>  
                                     <div class="row">
                                         <div class="col-lg-1 col-md-1 col-sm-2 mx-auto" style="align-content: center;">
-                                            <button type="submit" id="hotelExtrasNext"><b>DONE</b></button><br><br>
-                                            <p style="padding:5px;text-align: center; width: 20%; object-position: center" id="hotelExtrasP"></p>
+                                            <button type="submit" id="apartmentExtrasNext"><b>DONE</b></button><br><br>
+                                            <p style="padding:5px;text-align: center; width: 20%; object-position: center" id="apartmentExtrasP"></p>
                                         </div>
                                     </div>
                                 </div>                            
@@ -414,10 +414,13 @@
 
         <!-- My scripts for this template -->
         <script src="logreg/logreg.js"></script>
-        <script src="js/hotel.js"></script>
+        <script src="js/apartment.js"></script>
     </body>
 
 
 
 
 </html>
+
+
+

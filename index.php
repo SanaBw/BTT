@@ -19,7 +19,7 @@ if(isset($_SESSION['name']) || !isset($_SESSION)){
             $first_name=$row['first_name'];
             $last_name=$row['last_name'];
             $username=$row['username'];
-            header('Location: hotel.html');
+            header('Location: profile.php');
             exit; 
         } else {
             echo "none";
@@ -35,8 +35,6 @@ if(isset($_SESSION['name']) || !isset($_SESSION)){
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
 
         <title>BTT</title>
 

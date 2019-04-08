@@ -48,10 +48,22 @@
     color: white;
 }
 
-#hotelTitleNext, #hotelInfoNext, #hotelPriceNext, #hotelExtrasNext{
+#apartmentTitleNext, #apartmentInfoNext, #apartmentPriceNext, #apartmentExtrasNext{
     background-color: #18BC9C;
     color: white;
     border: solid #18BC9C;
     border-radius: 5px;
     margin-left: 10px;
+}
+
+
+#logOut {
+	background-color: red;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+#logOut:hover {
+    background-color: white;
+    
 }

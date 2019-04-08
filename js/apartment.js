@@ -22,13 +22,13 @@ function openTab(evt, tabName) {
 
 }
 
-jQuery("#hotelTitleNext").click(function (){
-    var hotelTitle = document.getElementById("hotelTitle").value;
+jQuery("#apartmentTitleNext").click(function (){
+    var apartmentTitle = document.getElementById("apartmentTitle").value;
 
-    if (hotelTitle=="" || hotelTitle.length<5){
-        document.getElementById("hotelTitleP").style.backgroundColor="#bb0000";
-        document.getElementById("hotelTitleP").style.color="white";
-        document.getElementById("hotelTitleP").innerHTML = "Please enter the title of Your object. Make sure it's longer than 5 characters.";
+    if (apartmentTitle=="" || apartmentTitle.length<5){
+        document.getElementById("apartmentTitleP").style.backgroundColor="#bb0000";
+        document.getElementById("apartmentTitleP").style.color="white";
+        document.getElementById("apartmentTitleP").innerHTML = "Please enter the title of Your object. Make sure it's longer than 5 characters.";
     } else {
         document.getElementById("infoBtn").disabled=false;
         document.getElementById("infoBtn").click();
@@ -36,7 +36,7 @@ jQuery("#hotelTitleNext").click(function (){
 
 });
 
-jQuery("#hotelInfoNext").click(function (){
+jQuery("#apartmentInfoNext").click(function (){
     var address = document.getElementById("address").value;
     var city = document.getElementById("city").value;
     var size = document.getElementById("size").value;
@@ -50,9 +50,9 @@ jQuery("#hotelInfoNext").click(function (){
 
 
     if (address=="" || city=="" || size=="" || size2=="" || rooms=="" || floors=="" || heating=="" || floorType==""){
-        document.getElementById("hotelInfoP").style.backgroundColor="#bb0000";
-        document.getElementById("hotelInfoP").style.color="white";
-        document.getElementById("hotelInfoP").innerHTML = "Make sure You've entered all information.";
+        document.getElementById("apartmentInfoP").style.backgroundColor="#bb0000";
+        document.getElementById("apartmentInfoP").style.color="white";
+        document.getElementById("apartmentInfoP").innerHTML = "Make sure You've entered all information.";
     } else {
         document.getElementById("priceBtn").disabled=false;
         document.getElementById("priceBtn").click();
@@ -60,7 +60,7 @@ jQuery("#hotelInfoNext").click(function (){
 
 });
 
-jQuery("#hotelPriceNext").click(function (){
+jQuery("#apartmentPriceNext").click(function (){
     var price = document.getElementById("priceE").value;
     var price2 = document.getElementById("priceE2").value;
     var pictures = jQuery('#pictures').prop('files')[0];   
@@ -82,9 +82,9 @@ jQuery("#hotelPriceNext").click(function (){
      });*/
 
     if (price=="" || price==0 || price<0){
-        document.getElementById("hotelPriceP").style.backgroundColor="#bb0000";
-        document.getElementById("hotelPriceP").style.color="white";
-        document.getElementById("hotelPriceP").innerHTML = "Enter the price per day.";
+        document.getElementById("apartmentPriceP").style.backgroundColor="#bb0000";
+        document.getElementById("apartmentPriceP").style.color="white";
+        document.getElementById("apartmentPriceP").innerHTML = "Enter the price per day.";
     } else {
         document.getElementById("extrasBtn").disabled=false;
         document.getElementById("extrasBtn").click();
@@ -92,7 +92,7 @@ jQuery("#hotelPriceNext").click(function (){
 
 });
 
-jQuery("#hotelExtrasNext").click(function (){   
+jQuery("#apartmentExtrasNext").click(function (){   
 
     var washingMachine = document.getElementById("washingMachine").checked;    
     var dryer = document.getElementById("dryer").checked;    
@@ -163,7 +163,7 @@ jQuery("#hotelExtrasNext").click(function (){
         washingMachine.value='0'
     }
 
-    if (hotelTitle=="" || hotelTitle.length<5){
+    if (apartmentTitle=="" || apartmentTitle.length<5){
         document.getElementById("defaultOpen").click();
         return false;
     } else if (address=="" || city=="" || size=="" || size2=="" || rooms=="" || floors=="" || heating=="" || floorType==""){
@@ -173,21 +173,26 @@ jQuery("#hotelExtrasNext").click(function (){
         document.getElementById("priceBtn").click();
         return false;
     } else {    
-        var data = jQuery("#hotelForm").serialize();
-        jQuery("#hotelForm").find('input').each(function(){
+        var data = jQuery("#apartmentForm").serialize();
+        jQuery("#apartmentForm").find('input').each(function(){
             data[jQuery(this).attr('name')]=jQuery(this).val();
         });
         
         jQuery.ajax({
             type:"POST",
-            url:"php/addHotel.php",
+            url:"php/addApartment.php",
             dataType : "text",
             data: data,    
             contentType: "application/x-www-form-urlencoded"
         }).done(function(response, textStatus){
-
+            if (response.trim()=="success"){
+                document.getElementById("apartmentExtrasP").innerHTML="Successifully added! Redirecting...";
+                window.location.replace("/tourist/profile.php");
+            } else if (response.trim()=="error"){
+                  document.getElementById("apartmentExtrasP").innerHTML="Something went wrong.";
+            }
         }).fail(function(jqXHR, textStatus, errorThrown){
-
+                document.getElementById("apartmentExtrasP").innerHTML="There was an error. Try again or contact us.";
         });
         return false;
 

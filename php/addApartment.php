@@ -2,7 +2,7 @@
 session_start();
 include_once('../logreg/connection.php');
 
-$hotelTitle=mysqli_real_escape_string($conn, ($_POST['hotelTitle']));
+$apartmentTitle=mysqli_real_escape_string($conn, ($_POST['apartmentTitle']));
 $ownerID = $_SESSION['ID'];
 
 $address=mysqli_real_escape_string($conn, ($_POST['address']));
@@ -74,13 +74,17 @@ $airConditioning=mysqli_real_escape_string($conn, ($_POST['airConditioning']));
 $has_heating=mysqli_real_escape_string($conn, ($_POST['heatingCheck']));
 $familyRoom=mysqli_real_escape_string($conn, ($_POST['familyRoom']));
 $nonsmokingRoom=mysqli_real_escape_string($conn, ($_POST['nonsmokingRoom']));
+$vals="";
 
 
-
-$sql = "INSERT INTO hotel (hotel_title, owner_ID, address, city, size, size2, rooms, floors, heating, floor, price, price_offseason, image, washing_machine,dryer, toilet_paper, towels, bidet, bathtub,cabin, wc, wardrobe_or_closet, closet, kitchen_table, detergents, cooking_plate, oven, kitchen_accessories, microwave_oven, refrigerator, sofa_bed, sound_insulation, private_entrance, safe_ iron, ironing_board, river_view, city_view, mountain_view, garden_view, pets, dining_room, couch, seating_area, tv, flat_screen, satellite, cable, internet, lowered_washing, object_adapted, elevator, parking, garage, childrens_tv, safety_for_babies, ac, has_heating, family_room, nonsmoking_room) VALUES ('$hotelTitle', '$ownerID', '$address', '$city', '$size', '$size2', '$rooms', '$floors', '$heating', '$floorType', '$priceE', '$priceE2', '$pictures', '$washingMachine', '$dryer', '$toiletPaper', '$towels', '$bidet', '$bathub', '$cabin', '$wc', '$wardrobeOrCloset','$wardrobe','$kitchenTable','$detergents','$cookingPlate','$oven','$kitchenAccessories','$microwaveOven','$refrigerator','$sofaBed','$soundInsulation','$privateEntrance', '$safe','$iron','$ironingBoard','$riverView','$cityView','$mountainView','$gardenView','$pets','$diningRoom','$couch','$seatingArea', '$tv','$flatScreen','$satellite','$cable','$internet','$loweredWashbasin','$objectAdapted','$elevator','$parking','$garage', '$childrenProgram','$safetyForBabies','$airConditioning','$has_heating','$familyRoom','$nonsmokingRoom')";
+$sql = "INSERT INTO apartment (apartment_title, owner_ID, address, city, size, size2, rooms, floors, heating, floor, price, price_offseason, image, washing_machine,dryer, toilet_paper, towels, bidet, bathtub,cabin, wc, wardrobe_or_closet, closet, kitchen_table, detergents, cooking_plate, oven, kitchen_accessories, microwave_oven, refrigerator, sofa_bed, sound_insulation, private_entrance, safe, iron, ironing_board, river_view, city_view, mountain_view, garden_view, pets, dining_room, couch, seating_area, tv, flat_screen, satellite, cable, internet, lowered_washbin, object_adapted, elevator, parking, garage, childrens_tv, safety_for_babies, ac, has_heating, family_room, nonsmoking_room) VALUES ('$apartmentTitle', '$ownerID', '$address', '$city', '$size', '$size2', '$rooms', '$floors', '$heating', '$floorType', '$priceE', '$priceE2', '$pictures', '$washingMachine', '$dryer', '$toiletPaper', '$towels', '$bidet', '$bathub', '$cabin', '$wc', '$wardrobeOrCloset','$wardrobe','$kitchenTable','$detergents','$cookingPlate','$oven','$kitchenAccessories','$microwaveOven','$refrigerator','$sofaBed','$soundInsulation','$privateEntrance', '$safe','$iron','$ironingBoard','$riverView','$cityView','$mountainView','$gardenView','$pets','$diningRoom','$couch','$seatingArea', '$tv','$flatScreen','$satellite','$cable','$internet','$loweredWashbasin','$objectAdapted','$elevator','$parking','$garage', '$childrenProgram','$safetyForBabies','$airConditioning','$has_heating','$familyRoom','$nonsmokingRoom')";
 
 if(mysqli_query($conn, $sql)){
-    echo "success";
+    $vals= "success";
+} else {
+    $vals= "error";
 }
+
+echo $vals;
 
 ?>
