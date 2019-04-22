@@ -1,9 +1,18 @@
 <?php
 session_start();
-$name=$_SESSION['name'];
-$ID=$_SESSION['ID'];
-$email=$_SESSION['email']; 
-$phone=$_SESSION['phone']; 
+
+if(!isset($_SESSION) || !isset($_SESSION['name'])){
+
+
+    header('Location: index.php');
+    exit; 
+
+} else {
+    $name=$_SESSION['name'];
+    $ID=$_SESSION['ID'];
+    $email=$_SESSION['email']; 
+    $phone=$_SESSION['phone'];   
+}
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -37,7 +46,7 @@ $phone=$_SESSION['phone'];
 
     </head>
 
-    <body id="page-top">
+    <body id="page-top" style="max-width:100%;">
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
@@ -45,7 +54,7 @@ $phone=$_SESSION['phone'];
                 <a class="navbar-brand js-scroll-trigger" href="index.php">BTT</a>
                 <ul class="navbar-nav ml-auto">                        
                     <li class="nav-item mx-0 mx-lg-1" id="logOut" >
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="logreg/logOut.php">Log Out</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger btn btn-danger"  href="logreg/logOut.php">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -75,6 +84,7 @@ $phone=$_SESSION['phone'];
                             <button id="extrasApartments" class="tablinks" onclick="openTab(event, 'apartments')"><h4>Apartments</h4></button>
                         </div>
 
+
                         <div id="vehicles" class="tabcontent" style="padding-bottom: 50px">
 
                         </div>
@@ -84,65 +94,18 @@ $phone=$_SESSION['phone'];
                         </div>
 
                         <div id="apartments" class="tabcontent" style="padding-bottom: 50px">                           
-                            <div id="apartmentsInclude"> </div>                                       
+                            <div id="apartmentsInclude"> </div>   
+                            <div id="addApartment"><a href=apartment.php class="btn btn-primary">Add apartment</a></div>
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
+        
 
 
 
-        <!-- Footer -->
-        <div style="bottom: 0;width: 100%">
-            <footer class="footer text-center" >
-                <div class="container" >
-                    <div class="row">
-                        <div class="col-md-6 mb-6 mb-lg-0">
-                            <h4 class="text-uppercase mb-4">Location</h4>
-                            <p class="lead mb-0"> </p>
-                        </div>
-                        <div class="col-md-6 mb-6 mb-lg-0">
-                            <h4 class="text-uppercase mb-4">Around the Web</h4>
-                            <ul class="list-inline mb-0">
-                                <li class="list-inline-item">
-                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                        <i class="fab fa-fw fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                        <i class="fab fa-fw fa-google-plus-g"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                        <i class="fab fa-fw fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                        <i class="fab fa-fw fa-linkedin-in"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                        <i class="fab fa-fw fa-dribbble"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-
-            <div class="copyright py-4 text-center text-white" >
-                <div class="container" >
-                    <small>Copyright &copy; BTT</small>
-                </div>
-            </div>
-        </div>
         <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
         <div class="scroll-to-top d-lg-none position-fixed ">
             <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">

@@ -201,4 +201,9 @@ jQuery("#apartmentExtrasNext").click(function (){
 
 });
 
+//addDateApt({$row['ID']})
+//deleteApt({$row['ID']})
+
+
+
 

@@ -11,8 +11,65 @@ $query = "select * from apartment where owner_ID='$ID'";
 $result = mysqli_query($conn, $query);                                    
 
 if ($result){
-    foreach($result as $row) {                                     
-        echo "<p>{$row['apartment_title']}<p>";
+    foreach($result as $row) { 
+        
+        if ($row['start_date'] && $row['end_date']){
+            $start_date = date('d-m-Y', strtotime($row['start_date']));
+            $end_date = date('d-m-Y', strtotime($row['end_date']));
+        } else {
+            $start_date="";
+            $end_date="";
+        }
+
+        echo "
+        <h5>{$row['apartment_title']} - {$row['address']}</h6>
+
+        
+        <h6> Available from '$start_date' to '$end_date'</h6>
+
+
+        <input type='button' class='btn btn-success onclick='dateModal' data-toggle='modal' data-target='#dateModal' style ='margin-left:5px;text-align:left; background:#18BC9C;float:left; left:5px;' value='Change Dates'>
+
+
+        <form onsubmit='return deleteApt({$row['ID']})' method='post' style='margin-right:5px;text-align:center;'> 
+        <input type='submit' style ='float:center; ' class='btn btn-danger' value='Delete'>
+        </form>&nbsp;
+
+        <p style='border-bottom: solid 1px black; width:55%'>   </p>
+
+        &nbsp;
+
+        <!-- Modal -->
+<div class='modal fade' id='dateModal' tabindex='-1' role='dialog' aria-labelledby='dateModal' aria-hidden='true'>
+  <div class='modal-dialog modal-dialog-centered' role='document'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='exampleModalLongTitle'>Pick dates</h5>       
+        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>
+      <div class='modal-body'>
+      <form method='post' name='dateChanger' onsubmit='return changeDate({$row['ID']});'>
+         Start Date <input type='date' name='startDate' id='startDate'><br><br>
+         End Date <input type='date' name='endDate' id='endDate'>
+
+         <div class='modal-footer'>
+
+        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+        <button type='submit' class='btn btn-primary'>Save changes</button>        
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+";
+?>
+
+
+<?php
     }
 } else {
     echo "error";

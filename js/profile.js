@@ -99,5 +99,64 @@ jQuery("#hotels").click(function (){
 });*/
 
 
+function deleteApt(id) {
+    event.preventDefault();
+    
+    jQuery
+        .ajax({
+        type:"POST",
+        url:"php/deleteApt.php",
+        dataType : "text",
+        data:"id=" + id , 
+        contentType: "application/x-www-form-urlencoded"
+    })
+        .done(function(response, textStatus){
+        if (response.trim()=='success'){
+             document.location.reload();
+
+        } else {
+            console.log("There was an error");
+        }
+    })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(response + " " + errorThrown);
+    });  
+
+
+    return false;
+}
+
+function changeDate(id){
+    event.preventDefault();
+    
+    
+    var startDate =document.getElementById("startDate").value;
+    var endDate = document.getElementById("endDate").value;
+
+   
+    jQuery
+        .ajax({
+        type:"POST",
+        url:"php/updateDateApt.php",
+        dataType : "text",
+        data:"startDate="+ startDate + "&endDate=" + endDate + "&id=" + id , 
+        contentType: "application/x-www-form-urlencoded"
+    })
+        .done(function(response, textStatus){
+        if (response.trim()=='success'){
+             jQuery('#dateModal').modal('hide');
+            document.location.reload();
+
+        } else {
+            console.log("There was an error");
+        }
+    })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(response + " " + errorThrown);
+    });  
+
+    
+    return false;
+}
 
 
