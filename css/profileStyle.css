@@ -110,7 +110,7 @@ body {
 
 }
 
-#addApartment{
+#addApartment, #addHotel, #addVehicle{
     position: center;
 }
 

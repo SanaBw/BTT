@@ -15,11 +15,13 @@
     transition: 0.3s;
     font-size: 17px;
     font-weight: bold;
+    
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
     background-color: #18BC9C;
+    
 }
 
 .tab button:disabled:hover{
@@ -48,7 +50,7 @@
     color: white;
 }
 
-#apartmentTitleNext, #apartmentInfoNext, #apartmentPriceNext, #apartmentExtrasNext{
+#apartmentTitleNext, #apartmentInfoNext, #apartmentPriceNext, #apartmentExtrasNext, #hotelTitleNext, #hotelInfoNext, #hotelPriceNext, #hotelExtrasNext, #hotelOffersNext{
     background-color: #18BC9C;
     color: white;
     border: solid #18BC9C;
@@ -67,3 +69,50 @@
     background-color: white;
     
 }
+
+
+.customCheckbox {
+  float: left;
+  position: relative;  
+  width: 20px;
+  height: 20px;
+  background: #eaeaea;
+  border-radius: 2px;
+  border: 1px solid #d2d2d2;
+  box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.1);
+  margin-right: 5px;
+  overflow: hidden;
+}
+
+.customCheckbox.customCheckboxChecked {
+  background: #18BC9C;
+  border: 1px solid #18BC9C;
+}
+
+.customCheckbox input {
+  opacity: 0;
+  cursor: pointer;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.customCheckbox span {
+  display: none;
+  text-align: center;
+  line-height: 20px;
+  font-size: 90%;
+  color: #222;
+}
+
+.customCheckbox.customCheckboxChecked span {
+  display: block;
+}
+
+
+
+   

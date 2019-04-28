@@ -73,7 +73,10 @@ if(!isset($_SESSION) || !isset($_SESSION['name'])){
                             </div>                    
                             <div class="info">
                                 <i class='fas fa-phone'><p id="phone"><?php echo $phone;?></p></i><br>
-                                <i class='fas fa-mail-bulk'><p id="email"><?php echo $email;?></p></i>
+                                <i class='fas fa-mail-bulk'><p id="email"><?php echo $email;?></p></i><br><br>
+                                <div id="addVehicle"><a href=php/vehicle.php class="btn btn-primary">Add vehicle</a></div><br>
+                                <div id="addHotel"><a href=php/hotel.php class="btn btn-primary">Add hotel</a></div><br>
+                                <div id="addApartment"><a href=php/apartment.php class="btn btn-primary">Add apartment</a></div>
                             </div> 
                         </div>
                     </div>
@@ -86,23 +89,24 @@ if(!isset($_SESSION) || !isset($_SESSION['name'])){
 
 
                         <div id="vehicles" class="tabcontent" style="padding-bottom: 50px">
-
+                            <div id="vehiclesInclude"> </div>   
+                            
                         </div>
 
                         <div id="hotels" class="tabcontent" style="padding-bottom: 50px">
-
+                            
                         </div>
 
                         <div id="apartments" class="tabcontent" style="padding-bottom: 50px">                           
                             <div id="apartmentsInclude"> </div>   
-                            <div id="addApartment"><a href=apartment.php class="btn btn-primary">Add apartment</a></div>
+                            
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
-        
+
 
 
 
@@ -133,6 +137,7 @@ if(!isset($_SESSION) || !isset($_SESSION['name'])){
         <script> 
             jQuery(function(){
                 jQuery("#apartmentsInclude").load("php/apartments.php"); 
+                jQuery("#vehiclesInclude").load("php/vehicles.php"); 
             });
         </script>
 

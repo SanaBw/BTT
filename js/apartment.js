@@ -21,9 +21,9 @@ function openTab(evt, tabName) {
 
 
 }
-
+var apartmentTitle,address,city,size,size2,rooms,floors,heating, floorType, price,price2,pictures;
 jQuery("#apartmentTitleNext").click(function (){
-    var apartmentTitle = document.getElementById("apartmentTitle").value;
+    apartmentTitle=document.getElementById("apartmentTitle").value;
 
     if (apartmentTitle=="" || apartmentTitle.length<5){
         document.getElementById("apartmentTitleP").style.backgroundColor="#bb0000";
@@ -37,16 +37,16 @@ jQuery("#apartmentTitleNext").click(function (){
 });
 
 jQuery("#apartmentInfoNext").click(function (){
-    var address = document.getElementById("address").value;
-    var city = document.getElementById("city").value;
-    var size = document.getElementById("size").value;
-    var size2 = document.getElementById("size2").value;
-    var rooms = document.getElementById("rooms").value;
-    var floors = document.getElementById("floors").value;
-    var heatingSelect = document.getElementById("heating");
-    var heating = heatingSelect.options[heatingSelect.selectedIndex].value;
+    address = document.getElementById("address").value;
+    city = document.getElementById("city").value;
+    size = document.getElementById("size").value;
+    size2 = document.getElementById("size2").value;
+    rooms = document.getElementById("rooms").value;
+    floors = document.getElementById("floors").value;
+    var heatingSelect = document.getElementById("heatingSelect");
+    heating = heatingSelect.options[heatingSelect.selectedIndex].value;
     var floorTypeSelect = document.getElementById("floorType");
-    var floorType = floorTypeSelect.options[floorTypeSelect.selectedIndex].value;
+    floorType = floorTypeSelect.options[floorTypeSelect.selectedIndex].value;
 
 
     if (address=="" || city=="" || size=="" || size2=="" || rooms=="" || floors=="" || heating=="" || floorType==""){
@@ -61,10 +61,11 @@ jQuery("#apartmentInfoNext").click(function (){
 });
 
 jQuery("#apartmentPriceNext").click(function (){
-    var price = document.getElementById("priceE").value;
-    var price2 = document.getElementById("priceE2").value;
-    var pictures = jQuery('#pictures').prop('files')[0];   
+    price = document.getElementById("priceE").value;
+    price2 = document.getElementById("priceE2").value;
+    pictures = jQuery('#pictures').prop('files')[0];   
 
+    //PICTURES
     /*var form_data = new FormData();                  
     form_data.append('file', pictures);
     alert(form_data);                             
@@ -89,79 +90,75 @@ jQuery("#apartmentPriceNext").click(function (){
         document.getElementById("extrasBtn").disabled=false;
         document.getElementById("extrasBtn").click();
     }
+        
 
 });
 
-jQuery("#apartmentExtrasNext").click(function (){   
-
-    var washingMachine = document.getElementById("washingMachine").checked;    
-    var dryer = document.getElementById("dryer").checked;    
-    var toiletPaper = document.getElementById("toiletPaper").checked;    
-    var towels = document.getElementById("towels").checked;    
-    var bathub = document.getElementById("bathub").checked;    
-    var wc = document.getElementById("wc").checked;    
-    var wardrobeOrCloset = document.getElementById("wardrobeOrCloset").checked;    
-    var wardrobe = document.getElementById("wardrobe").checked;    
-    var bidet = document.getElementById("bidet").checked;
-
-    var kitchenTable = document.getElementById("kitchenTable").checked;
-    var detergents = document.getElementById("detergents").checked;
-    var cookingPlate = document.getElementById("cookingPlate").checked;
-    var oven = document.getElementById("oven").checked;
-    var kitchenAccessories = document.getElementById("kitchenAccessories").checked;
-    var microwaveOven = document.getElementById("microwaveOven").checked;
-    var refrigerator = document.getElementById("refrigerator").checked;
-
-
-    var sofaBed = document.getElementById("sofaBed").checked;
-    var soundInsulation = document.getElementById("soundInsulation").checked;
-    var privateEntrance = document.getElementById("privateEntrance").checked;
-    var safe = document.getElementById("safe").checked;
-    var iron = document.getElementById("iron").checked;
-    var ironingBoard = document.getElementById("ironingBoard").checked;
-
-
-    var riverView = document.getElementById("riverView").checked;
-    var cityView = document.getElementById("cityView").checked;
-    var mountainView = document.getElementById("mountainView").checked;
-    var gardenView = document.getElementById("gardenView").checked;
-
-
-    var pets = document.getElementById("yes").checked;
-
-    var diningRoom = document.getElementById("diningRoom").checked;
-    var couch = document.getElementById("couch").checked;
-    var seatingArea = document.getElementById("seatingArea").checked;
-
-    var tv = document.getElementById("tv").checked;
-    var flatScreen = document.getElementById("flatScreen").checked;
-    var satellite = document.getElementById("satellite").checked;
-    var cable = document.getElementById("cable").checked;
-
-
-    var internet = document.getElementById("internetYes").checked;
-
-
-    var loweredWashbasin = document.getElementById("loweredWashbasin").checked;
-    var objectAdapted = document.getElementById("objectAdapted").checked;
-    var elevator = document.getElementById("elevator").checked;
-
-    var parkingYes = document.getElementById("parkingYes").checked;
-    var garage = document.getElementById("garage").checked;
-
-    var childrenProgram = document.getElementById("elevator").checked;
-    var safetyForBabies = document.getElementById("elevator").checked;
-
-    var airConditioning = document.getElementById("airConditioning").checked;
-    var heating = document.getElementById("heating").checked;
-    var familyRoom = document.getElementById("familyRoom").checked;
-    var nonsmokingRoom = document.getElementById("nonsmokingRoom").checked;
+jQuery("#apartmentExtrasNext").click(function (){  
     
-    if (washingMachine==true){
-        washingMachine.value='1';
-    } else {
-        washingMachine.value='0'
-    }
+    var heatingSelect = document.getElementById("heatingSelect");
+    var floorTypeSelect = document.getElementById("floorType");
+    var apartmentTitle=document.getElementById('apartmentTitle').value;
+    var address = document.getElementById("address").value;
+    var city = document.getElementById("city").value;
+    var size = document.getElementById("size").value;
+    var size2 = document.getElementById("size2").value;
+    var rooms = document.getElementById("rooms").value;
+    var floors = document.getElementById("floors").value;
+    var heating = heatingSelect.options[heatingSelect.selectedIndex].value;
+    var floorType = floorTypeSelect.options[floorTypeSelect.selectedIndex].value;
+    var price = document.getElementById("priceE").value;
+    var price2 = document.getElementById("priceE2").value;
+    
+
+    if (document.getElementById('washingMachine').checked) {var washingMachine=1;} else {var washingMachine=0;}
+    if (document.getElementById('dryer').checked) {var dryer=1;} else {var dryer=0;}
+    if (document.getElementById('toiletPaper').checked) {var toiletPaper=1;} else {var toiletPaper=0;}
+    if (document.getElementById('towels').checked) {var towels=1;} else {var towels=0;}
+    if (document.getElementById('bathtub').checked) {var bathtub=1;} else {var bathtub=0;}
+    if (document.getElementById('cabin').checked) {var cabin=1;} else {var cabin=0;}
+    if (document.getElementById('wc').checked) {var wc=1;} else {var wc=0;}
+    if (document.getElementById('wardrobeOrCloset').checked) {var wardrobeOrCloset=1;} else {var wardrobeOrCloset=0;}
+    if (document.getElementById('wardrobe').checked) {var wardrobe=1;} else {var wardrobe=0;}
+    if (document.getElementById('bidet').checked) {var bidet=1;} else {var bidet=0;}
+    if (document.getElementById('kitchenTable').checked) {var kitchenTable=1;} else {var kitchenTable=0;}
+    if (document.getElementById('detergents').checked) {var detergents=1;} else {var detergents=0;}
+    if (document.getElementById('cookingPlate').checked) {var cookingPlate=1;} else {var cookingPlate=0;}
+    if (document.getElementById('oven').checked) {var oven=1;} else {var oven=0;}
+    if (document.getElementById('kitchenAccessories').checked) {var kitchenAccessories=1;} else {var kitchenAccessories=0;}
+    if (document.getElementById('microwaveOven').checked) {var microwaveOven=1;} else {var microwaveOven=0;}
+    if (document.getElementById('refrigerator').checked) {var refrigerator=1;} else {var refrigerator=0;}
+    if (document.getElementById('sofaBed').checked) {var sofaBed=1;} else {var sofaBed=0;}
+    if (document.getElementById('soundInsulation').checked) {var soundInsulation=1;} else {var soundInsulation=0;}
+    if (document.getElementById('privateEntrance').checked) {var privateEntrance=1;} else {var privateEntrance=0;}
+    if (document.getElementById('safe').checked) {var safe=1;} else {var safe=0;}
+    if (document.getElementById('iron').checked) {var iron=1;} else {var iron=0;}
+    if (document.getElementById('ironingBoard').checked) {var ironingBoard=1;} else {var ironingBoard=0;}
+    if (document.getElementById('riverView').checked) {var riverView=1;} else {var riverView=0;}
+    if (document.getElementById('cityView').checked) {var cityView=1;} else {var cityView=0;}
+    if (document.getElementById('mountainView').checked) {var mountainView=1;} else {var mountainView=0;}
+    if (document.getElementById('gardenView').checked) {var gardenView=1;} else {var gardenView=0;}
+    if (document.getElementById('pets').checked) {var pets=1;} else {var pets=0;}
+    if (document.getElementById('diningRoom').checked) {var diningRoom=1;} else {var diningRoom=0;}
+    if (document.getElementById('couch').checked) {var couch=1;} else {var couch=0;}
+    if (document.getElementById('seatingArea').checked) {var seatingArea=1;} else {var seatingArea=0;}
+    if (document.getElementById('tv').checked) {var tv=1;} else {var tv=0;}
+    if (document.getElementById('flatScreen').checked) {var flatScreen=1;} else {var flatScreen=0;}
+    if (document.getElementById('satellite').checked) {var satellite=1;} else {var satellite=0;}
+    if (document.getElementById('cable').checked) {var cable=1;} else {var cable=0;}
+    if (document.getElementById('internet').checked) {var internet=1;} else {var internet=0;}
+    if (document.getElementById('loweredWashbasin').checked) {var loweredWashbasin=1;} else {var loweredWashbasin=0;}
+    if (document.getElementById('objectAdapted').checked) {var objectAdapted=1;} else {var objectAdapted=0;}
+    if (document.getElementById('elevator').checked) {var elevator=1;} else {var elevator=0;}
+    if (document.getElementById('parking').checked) {var parking=1;} else {var parking=0;}
+    if (document.getElementById('garage').checked) {var garage=1;} else {var garage=0;}
+    if (document.getElementById('childrenProgram').checked) {var childrenProgram=1;} else {var childrenProgram=0;}
+    if (document.getElementById('safetyForBabies').checked) {var safetyForBabies=1;} else {var safetyForBabies=0;}
+    if (document.getElementById('airConditioning').checked) {var airConditioning=1;} else {var airConditioning=0;}
+    if (document.getElementById('heatingCheck').checked) {var heatingCheck=1;} else {var heatingCheck=0;}
+    if (document.getElementById('familyRoom').checked) {var familyRoom=1;} else {var familyRoom=0;}
+    if (document.getElementById('nonsmokingRoom').checked) {var nonsmokingRoom=1;} else {var nonsmokingRoom=0;}
+
 
     if (apartmentTitle=="" || apartmentTitle.length<5){
         document.getElementById("defaultOpen").click();
@@ -173,26 +170,26 @@ jQuery("#apartmentExtrasNext").click(function (){
         document.getElementById("priceBtn").click();
         return false;
     } else {    
-        var data = jQuery("#apartmentForm").serialize();
-        jQuery("#apartmentForm").find('input').each(function(){
-            data[jQuery(this).attr('name')]=jQuery(this).val();
-        });
-        
+
         jQuery.ajax({
             type:"POST",
-            url:"php/addApartment.php",
+            url:"../php/addApartment.php",
             dataType : "text",
-            data: data,    
+            data:'apartmentTitle=' + apartmentTitle + '&address=' + address + '&city=' + city + '&size=' + size + '&size2=' + size2 + '&rooms=' + rooms + '&floors=' + floors + '&heating=' + heating + '&floorType=' + floorType + '&priceE=' + price + '&priceE2=' + price2 + '&washingMachine=' + washingMachine+ '&dryer=' + dryer+ '&toiletPaper=' + toiletPaper+ '&towels=' + towels+ '&bathtub=' + bathtub+ '&cabin=' + cabin+ '&wc=' + wc+ '&wardrobeOrCloset=' + wardrobeOrCloset+ '&wardrobe=' + wardrobe+ '&cabin=' + cabin+ '&bidet=' + bidet+ '&kitchenTable=' + kitchenTable+ '&detergents=' + detergents+ '&cookingPlate=' + cookingPlate+ '&oven=' + oven+ '&kitchenAccessories=' + kitchenAccessories+ '&microwaveOven=' + microwaveOven+ '&refrigerator=' + refrigerator+ '&sofaBed=' + sofaBed+ '&soundInsulation=' + soundInsulation+ '&privateEntrance=' + privateEntrance+ '&safe=' + safe+ '&iron=' + iron+ '&ironingBoard=' + ironingBoard+ '&riverView=' + riverView+ '&cityView=' + cityView+ '&mountainView=' + mountainView+ '&gardenView=' + gardenView+ '&pets=' + pets+ '&diningRoom=' + diningRoom+ '&couch=' + couch+ '&seatingArea=' + seatingArea+ '&tv=' + tv+ '&flatScreen=' + flatScreen+ '&satellite=' + satellite+ '&cable=' + cable+ '&internet=' + internet+ '&loweredWashbasin=' + loweredWashbasin+ '&objectAdapted=' + objectAdapted+ '&elevator=' + elevator+ '&parking=' + parking+ '&garage=' + garage+ '&childrenProgram=' + childrenProgram+ '&safetyForBabies=' + safetyForBabies+ '&airConditioning=' + airConditioning+ '&heatingCheck=' + heatingCheck+ '&familyRoom=' + familyRoom+ '&nonsmokingRoom=' + nonsmokingRoom,    
             contentType: "application/x-www-form-urlencoded"
         }).done(function(response, textStatus){
             if (response.trim()=="success"){
                 document.getElementById("apartmentExtrasP").innerHTML="Successifully added! Redirecting...";
                 window.location.replace("/tourist/profile.php");
             } else if (response.trim()=="error"){
-                  document.getElementById("apartmentExtrasP").innerHTML="Something went wrong.";
+                document.getElementById("apartmentExtrasP").style.backgroundColor="#bb0000";
+                document.getElementById("apartmentExtrasP").style.color="white";
+                document.getElementById("apartmentExtrasP").innerHTML="Something went wrong.";
             }
         }).fail(function(jqXHR, textStatus, errorThrown){
-                document.getElementById("apartmentExtrasP").innerHTML="There was an error. Try again or contact us.";
+            document.getElementById("apartmentExtrasP").style.backgroundColor="#bb0000";
+            document.getElementById("apartmentExtrasP").style.color="white";
+            document.getElementById("apartmentExtrasP").innerHTML="There was an error. Try again or contact us.";
         });
         return false;
 
@@ -201,8 +198,22 @@ jQuery("#apartmentExtrasNext").click(function (){
 
 });
 
-//addDateApt({$row['ID']})
-//deleteApt({$row['ID']})
+jQuery(document).ready(function () {
+    var checkboxs = jQuery('input[type=checkbox]');
+
+    checkboxs.each(function(){
+        jQuery(this).wrap('<div class="customCheckbox"></div>');
+        jQuery(this).before('<span>&#10004;</span>');
+    });
+
+    checkboxs.change(function(){
+        if(jQuery(this).is(':checked')){
+            jQuery(this).parent().addClass('customCheckboxChecked');
+        } else {
+            jQuery(this).parent().removeClass('customCheckboxChecked');
+        }
+    });
+});
 
 
 
