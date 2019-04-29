@@ -7,7 +7,7 @@ $phone=$_SESSION['phone'];
 
 include('../logreg/connection.php');
 
-$query = "select * from apartment where owner_ID='$ID'";
+$query = "select * from hotel where owner_ID='$ID'";
 $result = mysqli_query($conn, $query);                                    
 
 if ($result){
@@ -20,18 +20,19 @@ if ($result){
             $start_date="";
             $end_date="";
         }
-
-        echo "<div id={$row['ID']}>
-        <h5>{$row['apartment_title']} - {$row['address']}</h6>
+  
+        echo "
+        <div id={$row['ID']}>
+        <h5>{$row['hotel_title']} - {$row['hotel_address']}</h5>
 
         
         <h6> Available from '$start_date' to '$end_date'</h6>
 
 
-        <input type='button' class='btn btn-success onclick='dateModal' data-toggle='modal' data-target='#dateModal' style ='margin-left:5px;text-align:left; background:#18BC9C;float:left; left:5px;' value='Change Dates'>
+        <input type='button' class='btn btn-success' onclick='dateModalHotel' data-toggle='modal' data-target='#dateModalHotel' style ='margin-left:5px;text-align:left; background:#18BC9C;float:left; left:5px;' value='Change Dates'>
 
 
-        <form onsubmit='return deleteApt({$row['ID']})' method='post' style='margin-right:5px;text-align:center;'> 
+        <form onsubmit='return deleteHotel({$row['ID']})' method='post' style='margin-right:5px;text-align:center;'> 
         <input type='submit' style ='float:center; ' class='btn btn-danger' value='Delete'>
         </form>&nbsp;
 
@@ -40,19 +41,19 @@ if ($result){
         &nbsp;
 
         <!-- Modal -->
-<div class='modal fade' id='dateModal' tabindex='-1' role='dialog' aria-labelledby='dateModal' aria-hidden='true'>
+<div class='modal fade' id='dateModalHotel' tabindex='-1' role='dialog' aria-labelledby='dateModal' aria-hidden='true'>
   <div class='modal-dialog modal-dialog-centered' role='document'>
     <div class='modal-content'>
       <div class='modal-header'>
-        <h5 class='modal-title' id='exampleModalLongTitle'>Pick dates</h5>       
+        <h5 class='modal-title'>Pick dates</h5>       
         <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
           <span aria-hidden='true'>&times;</span>
         </button>
       </div>
       <div class='modal-body'>
-      <form method='post' name='dateChanger' onsubmit='return changeDate({$row['ID']});'>
-         Start Date <input type='date' name='startDate' id='startDate'><br><br>
-         End Date <input type='date' name='endDate' id='endDate'>
+      <form method='post' name='dateChanger' onsubmit='return changeDateHotel({$row['ID']});'>
+         Start Date <input type='date' name='startDateHotel' id='startDateHotel'><br><br>
+         End Date <input type='date' name='endDateHotel' id='endDateHotel'>
 
          <div class='modal-footer'>
 
@@ -65,7 +66,6 @@ if ($result){
   </div>
 </div>
 </div>
-
 ";
 ?>
 
@@ -74,5 +74,5 @@ if ($result){
     }
 } else {
     echo "error";
-}                                       
+}                                     
 ?>

@@ -50,7 +50,7 @@
     color: white;
 }
 
-#apartmentTitleNext, #apartmentInfoNext, #apartmentPriceNext, #apartmentExtrasNext, #hotelTitleNext, #hotelInfoNext, #hotelPriceNext, #hotelExtrasNext, #hotelOffersNext{
+#apartmentTitleNext, #apartmentInfoNext, #apartmentPriceNext, #apartmentExtrasNext, #hotelTitleNext, #hotelInfoNext, #hotelPriceNext, #hotelExtrasNext, #hotelOffersNext, #vehicleTitleNext, #vehicleInfoNext, #vehiclePriceNext{
     background-color: #18BC9C;
     color: white;
     border: solid #18BC9C;

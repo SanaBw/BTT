@@ -56,7 +56,7 @@ if(!isset($_SESSION['name'])){
                 <a class="navbar-brand js-scroll-trigger" href="../index.php">BTT</a>
                 <ul class="navbar-nav ml-auto">                        
                     <li class="nav-item mx-0 mx-lg-1" id="logOut" >
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="logreg/logOut.php">Log Out</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="../logreg/logOut.php">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -156,8 +156,8 @@ if(!isset($_SESSION['name'])){
                                             <label for="priceE2"> € (Euros) - off season</label>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 mx-auto"><br><br>  
-                                            <h5>Upload pictures</h5><br>
-                                            <input name="pictures" id="pictures" type="file" multiple><br>
+                                            <h5>Upload pictures</h5><br>                                            
+                                                <input name="pictures" id="pictures" type="file" multiple><br>                                            
                                         </div>
                                     </div>
                                 </div><br><br>

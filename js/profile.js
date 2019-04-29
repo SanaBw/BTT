@@ -23,7 +23,7 @@ function openTab(evt, tabName) {
 
 function deleteApt(id) {
     event.preventDefault();
-    
+
     jQuery
         .ajax({
         type:"POST",
@@ -34,7 +34,7 @@ function deleteApt(id) {
     })
         .done(function(response, textStatus){
         if (response.trim()=='success'){
-             document.location.reload();
+            jQuery("div[id="+id+"]").remove();
 
         } else {
             console.log("There was an error");
@@ -50,12 +50,12 @@ function deleteApt(id) {
 
 function changeDate(id){
     event.preventDefault();
-    
-    
+
+
     var startDate =document.getElementById("startDate").value;
     var endDate = document.getElementById("endDate").value;
 
-   
+
     jQuery
         .ajax({
         type:"POST",
@@ -66,7 +66,7 @@ function changeDate(id){
     })
         .done(function(response, textStatus){
         if (response.trim()=='success'){
-             jQuery('#dateModal').modal('hide');
+            jQuery('#dateModal').modal('hide');
             document.location.reload();
 
         } else {
@@ -77,8 +77,126 @@ function changeDate(id){
         console.log(response + " " + errorThrown);
     });  
 
-    
+
     return false;
 }
 
 
+function deleteHotel(id) {
+    event.preventDefault();
+
+    jQuery
+        .ajax({
+        type:"POST",
+        url:"php/deleteHotel.php",
+        dataType : "text",
+        data:"id=" + id , 
+        contentType: "application/x-www-form-urlencoded"
+    })
+        .done(function(response, textStatus){
+        if (response.trim()=='success'){
+            jQuery("div[id="+id+"]").remove();
+
+        } else {
+            console.log("There was an error");
+        }
+    })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(response + " " + errorThrown);
+    });  
+
+
+    return false;
+}
+
+function changeDateHotel(id){
+    event.preventDefault();
+
+
+    var startDateHotel =document.getElementById("startDateHotel").value;
+    var endDateHotel = document.getElementById("endDateHotel").value;
+
+
+    jQuery
+        .ajax({
+        type:"POST",
+        url:"php/updateDateHotel.php",
+        dataType : "text",
+        data:"startDate="+ startDateHotel + "&endDate=" + endDateHotel + "&id=" + id , 
+        contentType: "application/x-www-form-urlencoded"
+    })
+        .done(function(response, textStatus){
+        if (response.trim()=='success'){
+            jQuery('#dateModal').modal('hide');
+            document.location.reload();
+
+        } else {
+            console.log("There was an error");
+        }
+    })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(response + " " + errorThrown);
+    });  
+
+
+    return false;
+}
+
+function changeDateVehicle(id){
+    event.preventDefault();    
+
+    var startDateVehicle =document.getElementById("startDateVehicle").value;
+    var endDateVehicle = document.getElementById("endDateVehicle").value;
+
+
+    jQuery
+        .ajax({
+        type:"POST",
+        url:"php/updateDateVehicle.php",
+        dataType : "text",
+        data:"startDate="+ startDateVehicle + "&endDate=" + endDateVehicle + "&id=" + id , 
+        contentType: "application/x-www-form-urlencoded"
+    })
+        .done(function(response, textStatus){
+        if (response.trim()=='success'){
+            jQuery('#dateModal').modal('hide');
+            document.location.reload();
+
+        } else {
+            console.log("There was an error");
+        }
+    })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(errorThrown);
+    });  
+
+
+    return false;
+}
+
+function deleteVehicle(id) {
+    event.preventDefault();
+
+    jQuery
+        .ajax({
+        type:"POST",
+        url:"php/deleteVehicle.php",
+        dataType : "text",
+        data:"id=" + id , 
+        contentType: "application/x-www-form-urlencoded"
+    })
+        .done(function(response, textStatus){
+        if (response.trim()=='success'){
+            jQuery("div[id="+id+"]").remove();
+
+        } else {
+            console.log("There was an error");
+        }
+    })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(response + " " + errorThrown);
+    });  
+
+
+    return false;
+}

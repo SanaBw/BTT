@@ -123,15 +123,15 @@ $alarm=mysqli_real_escape_string($conn, ($_POST['alarm']));
 $roomWakeUpService=mysqli_real_escape_string($conn, ($_POST['roomWakeUpService']));
 $bedclothes=mysqli_real_escape_string($conn, ($_POST['bedclothes']));
 $towels=mysqli_real_escape_string($conn, ($_POST['towels']));
-$alarm=mysqli_real_escape_string($conn, ($_POST['alarm']));
-$roomWakeUpService=mysqli_real_escape_string($conn, ($_POST['roomWakeUpService']));
-$bedclothes=mysqli_real_escape_string($conn, ($_POST['bedclothes']));
-$towels=mysqli_real_escape_string($conn, ($_POST['towels']));
-$bedclothes=mysqli_real_escape_string($conn, ($_POST['bedclothes']));
-$towels=mysqli_real_escape_string($conn, ($_POST['towels']));
-$bedclothes=mysqli_real_escape_string($conn, ($_POST['bedclothes']));
-$towels=mysqli_real_escape_string($conn, ($_POST['towels']));
-$bedclothes=mysqli_real_escape_string($conn, ($_POST['bedclothes']));
+$balcony=mysqli_real_escape_string($conn, ($_POST['balcony']));
+$pavedYard=mysqli_real_escape_string($conn, ($_POST['pavedYard']));
+$cityView=mysqli_real_escape_string($conn, ($_POST['cityView']));
+$gardenView=mysqli_real_escape_string($conn, ($_POST['gardenView']));
+$lakeView=mysqli_real_escape_string($conn, ($_POST['lakeView']));
+$mountainView=mysqli_real_escape_string($conn, ($_POST['mountainView']));
+$poolView=mysqli_real_escape_string($conn, ($_POST['poolView']));
+$riverView=mysqli_real_escape_string($conn, ($_POST['riverView']));
+$seaView=mysqli_real_escape_string($conn, ($_POST['seaView']));
 $roomIsOnTheGroundFloor=mysqli_real_escape_string($conn, ($_POST['roomIsOnTheGroundFloor']));
 $accessibleToPeopleInWheelchairs=mysqli_real_escape_string($conn, ($_POST['accessibleToPeopleInWheelchairs']));
 $upperFloorsAccessibleWithElevators=mysqli_real_escape_string($conn, ($_POST['upperFloorsAccessibleWithElevators']));
@@ -141,6 +141,34 @@ $games=mysqli_real_escape_string($conn, ($_POST['games']));
 $booksDvdsOrMusic=mysqli_real_escape_string($conn, ($_POST['booksDvdsOrMusic']));
 $socketProtection=mysqli_real_escape_string($conn, ($_POST['socketProtection']));
 $pets=mysqli_real_escape_string($conn, ($_POST['pets']));
+
+
+$sql = "INSERT INTO 
+hotel (owner_ID, hotel_title, stars, hotel_address, city, zip, country, main_bed_type, sec_bed_type, number_of_main_beds, number_of_sec_beds, number_of_people, type_of_room, smoking, 
+number_of_rooms, size_of_room, hotel_price, discount, discount_value, discountUnit, internet, internet_available, internet_type, internet_price, parking, parking_type, reservation_needed, 
+parking_price, breakfast, breakfast_type, breakfastPrice, bhs, english, german, turkish, arabian, swedish, other, languages_other, restaurant, room_service, bar, 
+reception247, sauna, fitness_center, yard, terrace, nonsmoking_rooms, airport_ride, skiing, family_rooms, spa_center, jacuzzi, ac, water_park, pool, beach, clothes_hanger, 
+clothes_dryer, sofa, closet, carpet, long_bed, room_fan, fireplace, merged_rooms, iron, bug_net, private_entrance, safe, sound_isolation, sitting_room, paved_marble_floor, 
+wooden_floor, working_desk, toilet_paper, bath, bidet, shower_cabin, bathrobe, private_bathroom, free_bathroom_supplies, fan, hydromassaging_bath, shared_bathroom, slippers, wc, 
+computer, nitendo_wii, ps2, ps3, xbox360, laptop, ipad, cable_tv, cd_dvd_reader, fax_machine, flat_screen_tv, pay_per_view_channels, radio, satellite_tv, phone, tv, blu_ray_reader, 
+dining_room, barbecue, cooking_plates, toaster, kettle, outside_dinning_space, minibar, kitchenware, microwave, fridge, coffee_machine, children_seats, alarm, room_wake_up_service, 
+bedclothes, towels, balcony, paved_yard, city_view, garden_view, lake_view, mountain_view, pool_view, river_view, sea_view, room_is_on_the_ground_floor, accessible_to_people_in_wheelchairs, upper_floors_accessible_with_elevators, toilet_with_handles, safe_for_babies, games, books_dvds_or_music, socket_protection, pets) 
+VALUES ('$ownerID', '$hotelTitle','$stars','$hotelAddress','$city','$zip','$country','$mainBedType','$secBedType','$numberOfMainBeds','$numberOfSecBeds','$numberOfPeople','$typeOfRoom','$smoking', '$numberOfRooms','$sizeOfRoom','$hotelPrice','$discount','$discountValue','$discountUnit','$internet','$internetAvailable','$internetType','$internetPrice','$parking','$parkingType','$reservationNeeded','$parkingPrice','$breakfast','$breakfastType','$breakfastPrice','$bhs','$english','$german','$turkish','$arabian','$swedish','$other','$languagesOther','$restaurant','$roomService','$bar',
+'$reception247','$sauna','$fitnessCenter','$yard','$terrace','$nonsmokingRooms','$airportRide','$skiing','$familyRooms','$spaCenter','$jacuzzi','$ac','$waterPark','$pool','$beach','$clothesHanger',
+'$clothesDryer','$sofa','$closet','$carpet','$longBed','$roomFan','$fireplace','$mergedRooms','$iron','$bugNet','$privateEntrance','$safe','$soundIsolation','$sittingRoom','$pavedMarbleFloor',
+'$woodenFloor','$workingDesk','$toiletPaper','$bath','$bidet','$showerCabin','$bathrobe','$privateBathroom','$freeBathroomSupplies','$fan','$hydromassagingBath','$sharedBathroom','$slippers','$wc',
+'$computer','$nitendoWii','$ps2','$ps3','$xbox360','$laptop','$ipad','$cableTv','$cdDvdReader','$faxMachine','$flatScreenTv','$payPerViewChannels','$radio','$satelliteTv','$phone','$tv','$bluRayReader',
+'$diningRoom','$barbecue','$cookingPlates','$toaster','$kettle','$outsideDinningSpace','$minibar','$kitchenware','$microwave','$fridge','$coffeeMachine','$childrenSeats','$alarm','$roomWakeUpService',
+'$bedclothes','$towels','$balcony','$pavedYard','$cityView','$gardenView','$lakeView','$mountainView','$poolView','$riverView','$seaView','$roomIsOnTheGroundFloor','$accessibleToPeopleInWheelchairs',
+'$upperFloorsAccessibleWithElevators','$toiletWithHandles','$safeForBabies','$games','$booksDvdsOrMusic','$socketProtection','$pets')";
+
+if(mysqli_query($conn, $sql)){
+    $vals= "success";
+} else {
+    $vals= "error";
+}
+
+echo $vals;
 
 
 ?>

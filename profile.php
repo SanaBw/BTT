@@ -94,7 +94,7 @@ if(!isset($_SESSION) || !isset($_SESSION['name'])){
                         </div>
 
                         <div id="hotels" class="tabcontent" style="padding-bottom: 50px">
-                            
+                             <div id="hotelsInclude"> </div>
                         </div>
 
                         <div id="apartments" class="tabcontent" style="padding-bottom: 50px">                           
@@ -137,7 +137,8 @@ if(!isset($_SESSION) || !isset($_SESSION['name'])){
         <script> 
             jQuery(function(){
                 jQuery("#apartmentsInclude").load("php/apartments.php"); 
-                jQuery("#vehiclesInclude").load("php/vehicles.php"); 
+                jQuery("#vehiclesInclude").load("php/vehicles.php");
+                 jQuery("#hotelsInclude").load("php/hotels.php"); 
             });
         </script>
 

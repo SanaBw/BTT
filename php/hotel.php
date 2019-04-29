@@ -56,7 +56,7 @@ if(!isset($_SESSION['name'])){
                 <a class="navbar-brand js-scroll-trigger" href="../index.php">BTT</a>
                 <ul class="navbar-nav ml-auto">                        
                     <li class="nav-item mx-0 mx-lg-1" id="logOut" >
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="logreg/logOut.php">Log Out</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="../logreg/logOut.php">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['name'])){
                                 <button class="tablinks" onclick="openTab(event, 'info')" id="infoBtn" >Info</button>
                                 <button id="priceBtn" class="tablinks" onclick="openTab(event, 'price')">Price and details</button>
                                 <button id="extrasBtn" class="tablinks" onclick="openTab(event, 'extras')">Extras</button>
-                                <button id="offersBtn" class="tablinks" onclick="openTab(event, 'offers')">All offers</button>
+                                <button id="offersBtn" class="tablinks" onclick="openTab(event, 'offers')">Other offers</button>
                             </div>
 
                             <!--TITLE TAB-->
@@ -150,7 +150,7 @@ if(!isset($_SESSION['name'])){
                                             <div class="form-group">                                               
                                                 <br> Type of room <br>
                                                 <select name="typeOfRoom" class="form-control col-lg-5 col-md-5" id="typeOfRoom">
-                                                    <option value="">Single</option>
+                                                    <option value="" selected='selected'>Single</option>
                                                     <option value="">Double</option>
                                                     <option value="">Two separate beds</option>
                                                     <option value="">Double bedded</option>
@@ -523,15 +523,15 @@ if(!isset($_SESSION['name'])){
 
                                 <h5 onclick="showContent('yard');" style="text-decoration: underline;">Yard &amp; view</h5>
                                 <div id="yard" hidden=true>
-                                    <input type="checkbox" name="alarm"> Balcony<br>
-                                    <input type="checkbox" name="roomWakeUpService"> Paved yard<br>
-                                    <input type="checkbox"  name="bedclothes"> City view<br>
-                                    <input type="checkbox"  name="towels"> Garden view<br>
-                                    <input type="checkbox"  name="bedclothes"> Lake view<br>
-                                    <input type="checkbox"  name="towels"> Mountain view<br>
-                                    <input type="checkbox"  name="bedclothes"> Pool view<br>
-                                    <input type="checkbox"  name="towels"> River view<br>
-                                    <input type="checkbox"  name="bedclothes"> Sea view<br>
+                                    <input type="checkbox" name="balcony"> Balcony<br>
+                                    <input type="checkbox" name="pavedYard"> Paved yard<br>
+                                    <input type="checkbox"  name="cityView"> City view<br>
+                                    <input type="checkbox"  name="gardenView"> Garden view<br>
+                                    <input type="checkbox"  name="lakeView"> Lake view<br>
+                                    <input type="checkbox"  name="mountainView"> Mountain view<br>
+                                    <input type="checkbox"  name="poolView"> Pool view<br>
+                                    <input type="checkbox"  name="riverView"> River view<br>
+                                    <input type="checkbox"  name="seaView"> Sea view<br>
                                 </div><hr>
 
                                 <h5 onclick="showContent('availability');" style="text-decoration: underline;">Availability</h5>
